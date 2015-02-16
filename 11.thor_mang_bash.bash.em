@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source $THOR_SCRIPTS/completion/thor.sh
+source $THOR_SCRIPTS/completion/thor_install.sh
+source $THOR_SCRIPTS/completion/thor_motion.sh
+source $THOR_SCRIPTS/completion/thor_uninstall.sh
