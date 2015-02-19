@@ -4,7 +4,7 @@ function thor_motion() {
     command=$1
     shift
 
-    if [[ "$command" = "--help" || -z "$command" ]]; then
+    if [[ "$command" == "--help" || -z "$command" ]]; then
         _thor_motion_help
         return 0
     fi
@@ -21,13 +21,13 @@ function thor_motion() {
 
     # we are on thor-motion
     else
-        if [ $command = "roscore" ]; then
+        if [ $command == "roscore" ]; then
             thor screen start "roscore" "roscore $@"
-        elif [ $command = "start" ]; then
+        elif [ $command == "start" ]; then
             thor screen start "motion" "roslaunch thor_mang_launch robot_bringup.launch $@"
-        elif [ $command = "stop" ]; then
+        elif [ $command == "stop" ]; then
             thor screen stop "motion" "$@"
-        elif [ $command = "show" ]; then
+        elif [ $command == "show" ]; then
             thor screen show "motion" "$@"
         elif [ -x "$THOR_SCRIPTS/${command}.sh" ]; then
             thor $command "$@"
@@ -44,9 +44,7 @@ function _thor_motion_commands() {
 
     commands=$(_thor_commands)
     for i in ${commands[@]}; do
-        if [ $i = "motion" ]; then
-            continue
-        elif [ $i = completion\* ]; then
+        if [ $i == "motion" ]; then
             continue
         fi
         THOR_COMMANDS+=($i)
@@ -60,13 +58,13 @@ function _thor_motion_help() {
 
     commands=$(_thor_motion_commands)
     for i in ${commands[@]}; do       
-        if [ $i = "roscore" ]; then
+        if [ $i == "roscore" ]; then
             echo "   $i"
-        elif [ $i = "start" ]; then
+        elif [ $i == "start" ]; then
             echo "   $i"
-        elif [ $i = "stop" ]; then
+        elif [ $i == "stop" ]; then
             echo "   $i"
-        elif [ $i = "show" ]; then
+        elif [ $i == "show" ]; then
             echo "   $i"
         elif [ -x "$THOR_SCRIPTS/$i.sh" ]; then
             echo "   $i"
