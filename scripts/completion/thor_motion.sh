@@ -24,7 +24,7 @@ function thor_motion() {
         if [ $command == "roscore" ]; then
             thor screen start "roscore" "roscore $@"
         elif [ $command == "start" ]; then
-            thor screen start "motion" "roslaunch thor_mang_launch robot_bringup.launch $@"
+            thor screen start "motion" "roslaunch thor_mang_onboard_launch robot_bringup.launch $@"
         elif [ $command == "stop" ]; then
             thor screen stop "motion" "$@"
         elif [ $command == "show" ]; then

@@ -97,7 +97,7 @@ function _thor_complete() {
                     COMPREPLY=( $( compgen -W "--screen" -- "$cur" ) )
                 fi
 
-                COMP_WORDS=( roslaunch thor_mang_launch $cur )
+                COMP_WORDS=( roslaunch thor_mang_onboard_launch $cur )
                 COMP_CWORD=2
                 _roscomplete_launch
                 ;;
