@@ -8,4 +8,5 @@
 if [ -d "$1" ]; then
   wstool rm $1
   rm $1 -rf
+  echo "Removed folder $1 from workspace."
 fi

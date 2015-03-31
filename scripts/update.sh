@@ -2,6 +2,8 @@
 
 echo
 
+$THOR_SCRIPTS/rm_obsolete_packages.sh
+
 cd $THOR_ROOT
 echo ">>> Pulling install folder in $THOR_ROOT"
 git pull
