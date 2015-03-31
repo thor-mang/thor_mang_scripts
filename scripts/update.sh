@@ -5,6 +5,7 @@ echo
 # Takes us to scripts which is inside workspace, so that's good enough
 # for wstool to work
 cd $THOR_SCRIPTS
+git pull
 
 # Remove obsolete stuff using wstool
 $THOR_SCRIPTS/rm_obsolete_packages.sh

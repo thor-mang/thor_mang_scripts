@@ -9,5 +9,4 @@ $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_manipulation_pl
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_planning_msgs
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_perception_msgs
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_lidar_proc
-$THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/robot_self_filter
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_perception
