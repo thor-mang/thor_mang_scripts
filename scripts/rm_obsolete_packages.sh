@@ -10,3 +10,6 @@ $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_planning_msgs
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_perception_msgs
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_lidar_proc
 $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_perception
+$THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_ocs_common
+$THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_templates
+$THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/flor_rviz
