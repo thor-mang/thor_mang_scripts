@@ -47,6 +47,8 @@ function displayStatus()
       fi
       git status | grep -P 'branch is (ahead|behind)'
       git status | grep "modified"
+      git status | grep "new file"
+      git status | grep "deleted"
       if [ -n "$(git status | grep 'Untracked files')" ]
       then
         git status --porcelain | grep '??' | sed -r 's/^.{3}//' \
