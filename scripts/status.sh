@@ -30,7 +30,7 @@ function displayStatus()
   cd $dir
   if [ -z "$desiredBranch" ]
   then
-    desiredBranch=$(git log --pretty='%d' -1 remotes/origin/HEAD | perl -ne 'm#(?<=origin/)([^,]*)# && print "$1\n"')
+    desiredBranch=$(git log --pretty='%d' -1 HEAD | perl -ne 'm#(?<=origin/)([^,]*)# && print "$1\n"')
   fi
 
   if [ -e "$dir/.git" ]
