@@ -80,7 +80,7 @@ displayStatus $PWD
 
 catkin_src=${ROS_WORKSPACE}
 blueEcho "Looking for changes in ${catkin_src} ..."
-for d in `find  ${catkin_src} -mindepth 1 -maxdepth 2 -type d`;
+for d in `find  ${catkin_src} -mindepth 1 -maxdepth 3 -type d`;
 do
   branch=$(findCanonicalBranch $d ${catkin_src}/..)
   displayStatus $d $branch
