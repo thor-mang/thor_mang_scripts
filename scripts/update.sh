@@ -4,14 +4,15 @@ echo
 
 # Takes us to scripts which is inside workspace, so that's good enough
 # for wstool to work
+echo ">>> Pulling install folder in $THOR_SCRIPTS"
 cd $THOR_SCRIPTS
 git pull
 
 # Remove obsolete stuff using wstool
 $THOR_SCRIPTS/rm_obsolete_packages.sh
 
-cd $THOR_ROOT
 echo ">>> Pulling install folder in $THOR_ROOT"
+cd $THOR_ROOT
 git pull
 echo
 
