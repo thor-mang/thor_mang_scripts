@@ -1,34 +1,33 @@
 #!/bin/bash
 
-function thor_motion() {
+function thor_perception() {
     command=$1
     shift
 
     if [[ "$command" == "--help" || -z "$command" ]]; then
-        _thor_motion_help
+        _thor_perception_help
         return 0
     fi
 
-    # check if first a ssh connection to thor-motion is required/requested
+    # check if first a ssh connection to thor-perception is required/requested
     if [ $command = 'ssh' ]; then
-        if [ $(hostname) = $THOR_MOTION_HOSTNAME ]; then
-            echo "You are already on $THOR_MOTION_HOSTNAME!"
+        if [ $(hostname) = $THOR_PERCEPTION_HOSTNAME ]; then
+            echo "You are already on $THOR_PERCEPTION_HOSTNAME!"
         else
-            thor ssh $THOR_MOTION_HOSTNAME
+            thor ssh $THOR_PERCEPTION_HOSTNAME
         fi
-    elif [ ! $(hostname) = $THOR_MOTION_HOSTNAME ]; then
-        thor ssh $THOR_MOTION_HOSTNAME "thor motion $command $@"
+    elif [ ! $(hostname) = $THOR_PERCEPTION_HOSTNAME ]; then
+        thor ssh $THOR_PERCEPTION_HOSTNAME "thor perception $command $@"
 
-    # we are on thor-motion
+    # we are on thor-perception
     else
-        if [ $command == "roscore" ]; then
-            thor screen start "roscore" "roscore $@"
-        elif [ $command == "start" ]; then
-            thor screen start "motion" "roslaunch thor_mang_onboard_launch motion.launch $@"
+        if [ $command == "start" ]; then
+            thor master "thor-motion"
+            thor screen start "perception" "roslaunch thor_mang_onboard_launch perception.launch $@"
         elif [ $command == "stop" ]; then
-            thor screen stop "motion" "$@"
+            thor screen stop "perception" "$@"
         elif [ $command == "show" ]; then
-            thor screen show "motion" "$@"
+            thor screen show "perception" "$@"
         elif [ -x "$THOR_SCRIPTS/${command}.sh" ]; then
             thor $command "$@"
         else
@@ -39,12 +38,12 @@ function thor_motion() {
     return 0
 }
 
-function _thor_motion_commands() {
-    local THOR_COMMANDS=("roscore" "start" "stop" "show")
+function _thor_perception_commands() {
+    local THOR_COMMANDS=("start" "stop" "show")
 
     commands=$(_thor_commands)
     for i in ${commands[@]}; do
-        if [ $i == "motion" ]; then
+        if [ $i == "perception" ]; then
             continue
         fi
         THOR_COMMANDS+=($i)
@@ -53,14 +52,12 @@ function _thor_motion_commands() {
     echo ${THOR_COMMANDS[@]}
 }
 
-function _thor_motion_help() {
+function _thor_perception_help() {
     echo "The following commands are available:"
 
-    commands=$(_thor_motion_commands)
+    commands=$(_thor_perception_commands)
     for i in ${commands[@]}; do       
-        if [ $i == "roscore" ]; then
-            echo "   $i"
-        elif [ $i == "start" ]; then
+        if [ $i == "start" ]; then
             echo "   $i"
         elif [ $i == "stop" ]; then
             echo "   $i"
@@ -77,7 +74,7 @@ function _thor_motion_help() {
     echo "(*) Commands marked with * may change your environment."
 }
 
-function _thor_motion_complete() {
+function _thor_perception_complete() {
     local cur
     local prev
 
@@ -91,7 +88,7 @@ function _thor_motion_complete() {
     if [[ "$cur" == -* ]]; then
         COMPREPLY=( $( compgen -W "--help" -- "$cur" ) )
     else
-        COMPREPLY=( $( compgen -W "$(_thor_motion_commands)" -- "$cur" ) )
+        COMPREPLY=( $( compgen -W "$(_thor_perception_commands)" -- "$cur" ) )
     fi
 } &&
-complete -F _thor_motion_complete thor_motion
+complete -F _thor_perception_complete thor_perception

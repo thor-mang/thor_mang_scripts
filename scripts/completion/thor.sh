@@ -119,6 +119,13 @@ function _thor_complete() {
                 _thor_motion_complete
                 ;;
 
+            perception)
+                #COMP_CWORD=$((COMP_CWORD+1))          
+                COMP_WORDS=( thor perception $cur )
+                COMP_CWORD=2
+                _thor_perception_complete
+                ;;
+
             screen)
                 COMPREPLY=( $( compgen -W "start stop show" -- "$cur" ) )
                 ;;

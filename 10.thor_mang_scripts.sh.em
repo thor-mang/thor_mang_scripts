@@ -37,6 +37,7 @@ fi
 export PATH=$THOR_SCRIPTS/helper:$PATH
 export ROS_WORKSPACE=$THOR_ROOT/src
 export THOR_MOTION_HOSTNAME="thor-motion"
+export THOR_PERCEPTION_HOSTNAME="thor-perception"
 export ROBOT_HOSTNAMES="thor-motion thor-perception"
 export ROBOT_USER="thor"
 export LEFT_HAND_TYPE="l_vt_hand"
