@@ -7,7 +7,8 @@ cd $THOR_ROOT/src/external/sbpl
 mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-sudo make install
+make
+sudo install
 cd $THOR_ROOT
 
 # build and install thor mang libs
