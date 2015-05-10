@@ -15,3 +15,4 @@
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/flor_rviz
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/vigir_footstep_planning
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang/thor_mang_footstep_planner
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang_vigir_integration
