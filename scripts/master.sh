@@ -1,10 +1,10 @@
 #!/bin/bash
 
 master=$1
-host -t a $master >/dev/null
-if [ "$?" -ne 0 ]; then
-    echo "WARNING! Host $master cannot be resolved at the moment!"
-fi
+#host -t a $master >/dev/null
+#if [ "$?" -ne 0 ]; then
+#    echo "WARNING! Host $master cannot be resolved at the moment!"
+#fi
 
 # export ROS_MASTER_URI
 export ROS_MASTER_URI=http://$master:11311
