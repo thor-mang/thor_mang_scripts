@@ -8,7 +8,7 @@ mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make
-sudo install
+sudo make install
 cd $THOR_ROOT
 
 # build and install thor mang libs
