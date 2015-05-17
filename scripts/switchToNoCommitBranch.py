@@ -12,7 +12,7 @@ import argparse
 LOCAL_REPO_DIRECTORY = '/home/hector/thor/'
 ROSBUILD_DIRECTORY = os.environ['THOR_ROOT'] + '/rosinstall/'
 
-def parse(hostname, reset):
+def parse(reset):
     pattern  = ROSBUILD_DIRECTORY+"*.rosinstall"
     for index, script in enumerate(sorted(glob.glob(pattern))):
         with open (script, "r") as myfile:
@@ -34,4 +34,4 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = "Setup machine to be able to push/pull to machine on local network", epilog=__doc__)
     parser.add_argument("-r", "--reset", action="store_true", help="reconfigure computers if local commits have already been setup")
     args = parser.parse_args()
-    parse(args.hostname, args.reset)
+    parse(args.reset)
