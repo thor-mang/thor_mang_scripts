@@ -14,6 +14,8 @@ ROSBUILD_DIRECTORY = '/home/hector/thor/rosinstall/'
 
 def parse():
     pattern  = ROSBUILD_DIRECTORY+"*.rosinstall"
+
+    result = 0
     for index, script in enumerate(sorted(glob.glob(pattern))):
         with open (script, "r") as myfile:
             data=myfile.read()
@@ -25,7 +27,10 @@ def parse():
             
             if(os.path.isdir(local_folder)):                          
                 print "Now processing "+local_folder+" folder...."
-                os.system("cd "+local_folder+";git fetch origin +refs/heads/*:refs/heads/* --prune")
+                result = result | os.system("cd "+local_folder+";git fetch origin +refs/heads/*:refs/heads/* --prune")
+                
+    if (result != 0):
+	os.system("ssmtp steinachim@gmx.de < /home/hector/error-push.msg")                
                 
 if __name__ == "__main__":
     parse()
