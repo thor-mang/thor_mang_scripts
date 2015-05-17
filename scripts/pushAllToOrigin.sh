@@ -12,7 +12,7 @@ import argparse
 LOCAL_REPO_DIRECTORY = '/home/hector/thor/'
 ROSBUILD_DIRECTORY = '/home/hector/thor/rosinstall/'
 
-def parse(reset):
+def parse():
     pattern  = ROSBUILD_DIRECTORY+"*.rosinstall"
     for index, script in enumerate(sorted(glob.glob(pattern))):
         with open (script, "r") as myfile:
@@ -25,13 +25,7 @@ def parse(reset):
             
             if(os.path.isdir(local_folder)):                          
                 print "Now processing "+local_folder+" folder...."
-                if(reset):
-                    os.system("cd "+local_folder+";git checkout master")
-                else:
-                    os.system("cd "+local_folder+"; git branch NO_COMMIT_BRANCH; git checkout NO_COMMIT_BRANCH");
+                os.system("cd "+local_folder+";git push --all origin")
                 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description = "Setup machine to be able to push/pull to machine on local network", epilog=__doc__)
-    parser.add_argument("-r", "--reset", action="store_true", help="reconfigure computers if local commits have already been setup")
-    args = parser.parse_args()
-    parse(args.reset)
+    parse()
