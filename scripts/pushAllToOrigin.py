@@ -35,7 +35,9 @@ def parse():
                 result = result | os.system("cd "+local_folder+";git push --all origin")
 
     if (result != 0):
-	os.system("ssmtp steinachim@gmx.de < /home/hector/error-push.msg")                
+        os.system("ssmtp steinachim@gmx.de < /home/hector/error-push.msg")                
+    else:
+        os.system("ssmtp steinachim@gmx.de < /home/hector/success-push.msg")
                 
 if __name__ == "__main__":
     parse()

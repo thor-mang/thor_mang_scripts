@@ -34,7 +34,9 @@ def parse():
                 result = result | os.system("cd "+local_folder+";git fetch origin +refs/heads/*:refs/heads/* --prune")
                 
     if (result != 0):
-	os.system("ssmtp steinachim@gmx.de < /home/hector/error-push.msg")                
+        os.system("ssmtp steinachim@gmx.de < /home/hector/error-fetch.msg")                
+    else:
+        os.system("ssmtp steinachim@gmx.de < /home/hector/success-fetch.msg")
                 
 if __name__ == "__main__":
     parse()
