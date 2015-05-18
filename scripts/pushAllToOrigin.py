@@ -36,10 +36,12 @@ def parse():
 
     if (result != 0):
         os.system("ssmtp steinachim@gmx.de < /home/hector/error-push.msg")                
+        result_str = "fail"
     else:
         os.system("ssmtp steinachim@gmx.de < /home/hector/success-push.msg")
+        result_str = "success"
 
-    os.system("echo \"Last Push: `date`\" >> /home/hector/last_action.log")
+    os.system("echo \"Last Push: `date` - "+result_str+"\" >> /home/hector/last_action.log")
 
                 
 if __name__ == "__main__":

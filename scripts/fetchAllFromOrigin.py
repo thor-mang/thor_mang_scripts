@@ -34,11 +34,13 @@ def parse():
                 result = result | os.system("cd "+local_folder+";git fetch origin +refs/heads/*:refs/heads/* --prune")
                 
     if (result != 0):
-        os.system("ssmtp steinachim@gmx.de < /home/hector/error-fetch.msg")                
+        os.system("ssmtp steinachim@gmx.de < /home/hector/error-fetch.msg")               
+        result_str = "fail" 
     else:
         os.system("ssmtp steinachim@gmx.de < /home/hector/success-fetch.msg")
+        result_str = "success"
 
-    os.system("echo \"Last Fetch: `date`\" >> /home/hector/last_action.log")
+    os.system("echo \"Last Fetch: `date` - "+result_str+"\" >> /home/hector/last_action.log")
                     
 if __name__ == "__main__":
     parse()
