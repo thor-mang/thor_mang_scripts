@@ -17,9 +17,14 @@ def parse(reset):
     for index, script in enumerate(sorted(glob.glob(pattern))):
         with open (script, "r") as myfile:
             data=myfile.read()
-        allFolders = re.findall("local-name: \S*", data)   
+        allFolders = re.findall("local-name: \S*", data)  
+        allUris = re.findall("uri: \S*", data)
         
         for i in range(len(allFolders)):
+            if ( allUris[i].find("external.torcrobotics.com") >= 0 ):
+                print "Ignoring " + allFolders[i] + ": torcrobotics repo"
+                continue
+              
             folders = re.findall("\S*",allFolders[i])            
             local_folder = LOCAL_REPO_DIRECTORY + folders[2].replace(',','').replace(' ','')
             

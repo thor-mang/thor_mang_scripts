@@ -18,9 +18,15 @@ def parse(hostname, reset):
     for index, script in enumerate(sorted(glob.glob(pattern))):
         with open (script, "r") as myfile:
             data=myfile.read()
+            
+        allUris = re.findall("uri: \S*", data)
         allFolders = re.findall("local-name: \S*", data)   
         
         for i in range(len(allFolders)):
+            if ( allUris[i].find("external.torcrobotics.com") >= 0 ):
+                print "Ignoring " + allFolders[i] + ": torcrobotics repo"
+                continue
+              
             folders = re.findall("\S*",allFolders[i])            
             local_folder = LOCAL_REPO_DIRECTORY + folders[2].replace(',','').replace(' ','')
             server_folder = SERVER_REPO_DIRECTORY + folders[2].replace(',','').replace(' ','')
@@ -30,7 +36,7 @@ def parse(hostname, reset):
                 if(reset):
                     os.system("cd "+local_folder+";git remote remove offline")
                     os.system("cd "+local_folder+"/.git; sed -i 's/remote = offline/remote = origin/g' config")
-                if len(hostname) > 0:
+                f len(hostname) > 0:
                     #p = subprocess.Popen(["git remote add vigir@"+hostname+":"+folder], cwd=folder)    
                     os.system("git config receive.denyCurrentBranch ignore")
                     os.system("cd "+local_folder+"; git remote add offline hector@"+hostname+":"+server_folder)
