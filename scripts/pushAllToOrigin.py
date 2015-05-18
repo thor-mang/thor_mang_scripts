@@ -38,6 +38,9 @@ def parse():
         os.system("ssmtp steinachim@gmx.de < /home/hector/error-push.msg")                
     else:
         os.system("ssmtp steinachim@gmx.de < /home/hector/success-push.msg")
+
+    os.system("echo \"Last Push: `date`\" >> /home/hector/last_action.log")
+
                 
 if __name__ == "__main__":
     parse()

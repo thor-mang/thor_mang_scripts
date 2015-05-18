@@ -37,6 +37,8 @@ def parse():
         os.system("ssmtp steinachim@gmx.de < /home/hector/error-fetch.msg")                
     else:
         os.system("ssmtp steinachim@gmx.de < /home/hector/success-fetch.msg")
-                
+
+    os.system("echo \"Last Fetch: `date`\" >> /home/hector/last_action.log")
+                    
 if __name__ == "__main__":
     parse()
