@@ -34,8 +34,8 @@ def parse(hostname, reset):
             if(os.path.isdir(local_folder)):                          
                 print "Now processing "+local_folder+" folder...."
                 if(reset):
-                    os.system("cd "+local_folder+";git remote remove offline")
                     os.system("cd "+local_folder+"/.git; sed -i 's/remote = offline/remote = origin/g' config")
+                    os.system("cd "+local_folder+";git remote remove offline")                    
                 if len(hostname) > 0:
                     #p = subprocess.Popen(["git remote add vigir@"+hostname+":"+folder], cwd=folder)    
                     os.system("git config receive.denyCurrentBranch ignore")
