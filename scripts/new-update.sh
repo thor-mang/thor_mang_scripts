@@ -37,23 +37,24 @@ echo
 # ---------------------------------------------------------------------------
 
 # Merge updates
-if [ ! "$option" = "--no-merge" ]
-then
-	cd $THOR_ROOT
-	echo ">>> Merging rosinstall files"
-	for file in $THOR_ROOT/rosinstall/*.rosinstall
-	do
-		filename=$(basename ${file%.*})
-		if [ -n "${THOR_MANG_NO_SIM:-}" ] && [ $filename == "thor_mang_simulation" ]
+cd $THOR_ROOT
+echo ">>> Merging rosinstall files"
+for file in $THOR_ROOT/rosinstall/*.rosinstall
+do
+	filename=$(basename ${file%.*})
+	if [ -n "${THOR_MANG_NO_SIM:-}" ] && [ $filename == "thor_mang_simulation" ]
+	then
+		continue;
+	else
+		if [ ! "$option" = "--no-merge" ]
 		then
-			continue;
-		else
 			echo "Merging to workspace: '$filename'.rosinstall"
 			wstool merge $file -y
 		fi
-	done
-	echo
-fi
+	fi
+done
+echo
+
 
 # ---------------------------------------------------------------------------
 
