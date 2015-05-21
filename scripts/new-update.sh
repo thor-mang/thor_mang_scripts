@@ -10,6 +10,7 @@ option=${1:-none}
 repos=" \
 $THOR_ROOT \
 $THOR_ROOT/rosinstall/optional/custom \
+$THOR_SCRIPTS \
 $THOR_SCRIPTS/custom \
 "
 
