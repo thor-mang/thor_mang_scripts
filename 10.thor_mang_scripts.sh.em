@@ -41,8 +41,8 @@ export THOR_PERCEPTION_HOSTNAME="thor-perception"
 export ROBOT_HOSTNAMES="thor-motion thor-perception"
 export ROBOT_USER="thor"
 export THOR_ROBOT_TYPE="thor_mang_hands"
-export THOR_LEFT_HAND_TYPE="l_vt_hand"
-export THOR_RIGHT_HAND_TYPE="r_vt_hand"
+export LEFT_HAND_TYPE="l_vt_hand"
+export RIGHT_HAND_TYPE="r_vt_hand"
 
 # adding ssh keys
 if [ -d "$THOR_ROOT/.ssh/" ] && [ "$(ls -A $THOR_ROOT/.ssh/)" ]; then
