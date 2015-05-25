@@ -118,6 +118,13 @@ function _thor_complete() {
                 COMP_CWORD=2
                 _thor_motion_complete
                 ;;
+                
+            field)
+                #COMP_CWORD=$((COMP_CWORD+1))          
+                COMP_WORDS=( thor field $cur )
+                COMP_CWORD=2
+                _thor_field_complete
+                ;;
 
             perception)
                 #COMP_CWORD=$((COMP_CWORD+1))          
