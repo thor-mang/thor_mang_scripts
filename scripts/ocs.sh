@@ -7,9 +7,11 @@ if [ $command == "primary" ]; then
 elif [ $command == "perception" ]; then
   echo "Starting perception ocs"
   roslaunch thor_mang_ocs perception_ocs.launch  
+  thor master ocs-primary
 elif [ $command == "behavior" ]; then
   echo "Starting behavior ocs"
   roslaunch thor_mang_ocs behavior_ocs.launch
+  thor master ocs-primary
 elif [ $command == "driving" ]; then
   echo "Starting driving widget"
   roslaunch thor_mang_driving_widget driving_widget.launch
