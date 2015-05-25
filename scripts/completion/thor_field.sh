@@ -17,12 +17,12 @@ function thor_field() {
             thor ssh $THOR_FIELD_HOSTNAME
         fi
     elif [ ! $(hostname) = $THOR_FIELD_HOSTNAME ]; then
-        thor ssh $THOR_FIELD_HOSTNAME "thor motion $command $@"
+        thor ssh $THOR_FIELD_HOSTNAME "thor field $command $@"
 
     # we are on thor-field
     else
         if [ $command == "start" ]; then
-            thor screen start "field" "roslaunch thor_mang_onboard_launch motion.launch $@"
+            thor screen start "field" "roslaunch thor_mang_field_launch field.launch $@"
         elif [ $command == "stop" ]; then
             thor screen stop "field" "$@"
         elif [ $command == "show" ]; then
