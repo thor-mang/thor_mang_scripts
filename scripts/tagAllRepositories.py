@@ -10,7 +10,8 @@ import pipes
 import argparse
 import time
 
-LOCAL_REPO_DIRECTORY = '/home/steinachim/THOR/'
+THOR_ROOT = os.environ['THOR_ROOT']
+LOCAL_REPO_DIRECTORY = THOR_ROOT+'/' 
 TAG_PREFIX = 'hector_working_version-'
 
 def execute(action, tag_name):
