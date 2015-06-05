@@ -57,7 +57,7 @@ if __name__ == "__main__":
     if ( len(sys.argv) > 1 ):
       action=sys.argv[1]
     
-      if ( action == "checkout" or action == "diff"):
+    if ( len(sys.argv) > 2 ):
         tag_name=sys.argv[2]
       
     execute(action, tag_name)
