@@ -43,6 +43,8 @@ def execute(action, tag_name):
                 result = result | os.system("cd "+local_folder+";git checkout -b "+tag_name+"; cd  "+LOCAL_REPO_DIRECTORY)
             elif ( action=="diff" ):
                 result = result | os.system("cd "+local_folder+";git diff tags/"+tag_name+"; cd  "+LOCAL_REPO_DIRECTORY)
+	    elif ( action=="push" ):
+		result = result | os.system("cd "+local_folder+";git push --tags; cd  "+LOCAL_REPO_DIRECTORY)
             else:
                 print("Error: invalid action '"+action)
                 
