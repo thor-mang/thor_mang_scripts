@@ -52,7 +52,6 @@
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_behaviors
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_smach_engine
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/executive_smach
-. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang_scripts
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_interactive_marker_pose_server
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang/thor_mang_compliant_control_launch
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/humanoid_joystick
