@@ -62,3 +62,4 @@
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_templates
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_ocs_eui
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_grasp_control
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang_scripts
