@@ -1,3 +1,3 @@
 #!/bin/bash
 
-thor_install "$@"
+$THOR_SCRIPTS/completion/thor_install.sh "$@"
