@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-. $THOR_SCRIPTS/make_externals.sh "$@"
+if [ "$#" -lt 1 ]; then
+  . $THOR_SCRIPTS/make_externals.sh
+fi
 
 cd $THOR_ROOT
-catkin_make "$@"
+catkin build "$@"
