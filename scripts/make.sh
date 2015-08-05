@@ -5,5 +5,16 @@ if [ "$#" -lt 1 ]; then
   . $THOR_SCRIPTS/make_externals.sh
 fi
 
-cd $THOR_ROOT
+change_dir=true
+for var in "$@"
+do
+	if [ "$var" == "--this" ]; then
+		change_dir=false
+    break
+  fi
+done
+
+if $change_dir ; then
+  cd $THOR_ROOT
+fi
 catkin build "$@"
