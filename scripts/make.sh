@@ -14,7 +14,7 @@ do
   fi
 done
 
-if $change_dir ; then
+if [ "$change_dir" = true ] ; then
   cd $THOR_ROOT
 fi
 catkin build "$@"
