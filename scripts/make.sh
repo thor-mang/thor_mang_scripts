@@ -17,4 +17,5 @@ done
 if [ "$change_dir" = true ] ; then
   cd $THOR_ROOT
 fi
+echo "Building with arguments $@"
 catkin build "$@"
