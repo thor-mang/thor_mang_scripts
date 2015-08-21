@@ -18,3 +18,9 @@
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang_vigir_integration
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang/thor_mang_driving
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir/vigir_templates
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/external/flor_common
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_perception
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_sandbox
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/flor_rviz
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_ocs_eui
+
