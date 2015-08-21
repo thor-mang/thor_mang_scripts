@@ -17,3 +17,4 @@
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang/thor_mang_footstep_planner
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang_vigir_integration
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang/thor_mang_driving
+. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir/vigir_templates
