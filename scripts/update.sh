@@ -1,9 +1,7 @@
 #!/bin/bash
 
-echo
+sudo echo
 
-# Takes us to scripts which is inside workspace, so that's good enough
-# for wstool to work
 echo ">>> Pulling install folder in $THOR_SCRIPTS"
 cd $THOR_SCRIPTS
 git pull
@@ -50,3 +48,6 @@ echo
 echo ">>> Updating catkin workspace"
 cd $THOR_ROOT/src
 wstool update
+
+echo ">>> Installing package dependencies"
+$THOR_ROOT/rosinstall/install_scripts/install_package_dependencies.sh

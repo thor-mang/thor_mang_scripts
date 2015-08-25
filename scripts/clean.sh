@@ -1,18 +1,27 @@
 #!/bin/bash
 
-. $THOR_SCRIPTS/clean_externals.sh
-
 cd $THOR_ROOT
-rm -rf $THOR_ROOT/build
 
-#rm -rf $THOR_ROOT/devel
-# Remove everything in devel but keep setup.bash and the corresonding things so that the source in .bashrc still works
-rm -rf $THOR_ROOT/devel/bin
-rm -rf $THOR_ROOT/devel/etc
-rm -rf $THOR_ROOT/devel/include
-rm -rf $THOR_ROOT/devel/lib
-rm -rf $THOR_ROOT/devel/share
-rm $THOR_ROOT/devel/.catkin
-rm $THOR_ROOT/devel/.rosinstall
+# Confirmation prompt before deleting?
+
+if [ "$#" -lt 1 ]; then
+  echo -n "Do you want to clean devel and build? [y/n] "
+  read -N 1 REPLY
+  echo
+  if test "$REPLY" = "y" -o "$REPLY" = "Y"; then
+    . $THOR_SCRIPTS/clean_externals.sh
+    catkin clean --all
+    echo " >>> Cleaned devel and build directories."
+  else
+    echo " >>> Clean cancelled by user."
+  fi
+else 
+  command=$1
+  if [ $command == "externals" ]; then
+    . $THOR_SCRIPTS/clean_externals.sh
+  else
+    catkin clean "$@"
+  fi
+fi
 
 
