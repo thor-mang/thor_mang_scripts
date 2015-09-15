@@ -44,6 +44,7 @@ export ROBOT_USER="thor"
 export THOR_ROBOT_TYPE="thor_mang_hands"
 export LEFT_HAND_TYPE="l_vt_hand"
 export RIGHT_HAND_TYPE="r_vt_hand"
+export THOR_DESCRIPTION_PACKAGE="thor_mang_tud_description"
 
 # adding ssh keys
 if [ -d "$THOR_ROOT/.ssh/" ] && [ "$(ls -A $THOR_ROOT/.ssh/)" ]; then
