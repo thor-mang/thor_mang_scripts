@@ -148,7 +148,7 @@ if [ "$record" = true ]; then
 
    echo "Recording at $resolution with $x_off,$y_off offset"
    echo " to $full_path"
-   ffmpeg  $record_audio -s $resolution -f x11grab -r 30 -i :0.0+$x_off,$y_off -vcodec libx264 -preset ultrafast -threads 0 $full_path
+   ffmpeg  $record_audio -s $resolution -f x11grab -i :0.0+$x_off,$y_off -vcodec libx264 -preset ultrafast -crf 0 -threads 0 $full_path
    echo -e "${lightgreen}Recorded to screencast_$now.mkv${NC}"
 
    if [ "$loop_audio" = true ]; then
