@@ -2,8 +2,6 @@
 
 cd $THOR_ROOT
 
-# Confirmation prompt before deleting?
-
 if [ "$#" -lt 1 ]; then
   echo -n "Do you want to clean devel and build? [y/n] "
   read -N 1 REPLY
@@ -23,5 +21,3 @@ else
     catkin clean "$@"
   fi
 fi
-
-
