@@ -64,5 +64,4 @@
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_grasp_control
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor_mang_scripts
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_object_template_manager
-. $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/vigir_object_template_manager
 . $THOR_SCRIPTS/rm_from_workspace.sh $THOR_ROOT/src/thor/thor_mang_footstep_planning/thor_mang_footstep_planning_msgs
