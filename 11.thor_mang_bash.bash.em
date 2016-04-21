@@ -5,4 +5,5 @@ source $THOR_SCRIPTS/completion/thor_motion.sh
 source $THOR_SCRIPTS/completion/thor_perception.sh
 source $THOR_SCRIPTS/completion/thor_onboard.sh
 source $THOR_SCRIPTS/completion/thor_field.sh
+source $THOR_SCRIPTS/completion/thor_test.sh
 source $THOR_SCRIPTS/completion/thor_uninstall.sh

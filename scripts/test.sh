@@ -2,4 +2,4 @@
 
 . $THOR_ROOT/setup.bash
 
-thor_onboard "$@"
+thor_test "$@"

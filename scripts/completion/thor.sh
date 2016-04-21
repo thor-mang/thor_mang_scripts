@@ -77,18 +77,12 @@ function _thor_complete() {
 
     # thor command <subcommand..>
     if [ $COMP_CWORD -ge 2 ]; then
-        case ${prev} in
+        case ${COMP_WORDS[1]} in
             install)
-                #COMP_CWORD=$((COMP_CWORD+1))                
-                COMP_WORDS=( thor install $cur )
-                COMP_CWORD=2
                 _thor_install_complete
                 ;;
 
             uninstall)
-                #COMP_CWORD=$((COMP_CWORD+1))                
-                COMP_WORDS=( thor uninstall $cur )
-                COMP_CWORD=2
                 _thor_uninstall_complete
                 ;;
 
@@ -103,8 +97,6 @@ function _thor_complete() {
                 ;;
 
             make|update)
-                COMP_WORDS=( roscd $cur )
-                COMP_CWORD=1
                 _roscomplete
                 ;;
 
@@ -113,35 +105,27 @@ function _thor_complete() {
                 ;;
 
             motion)
-                #COMP_CWORD=$((COMP_CWORD+1))          
-                COMP_WORDS=( thor motion $cur )
-                COMP_CWORD=2
                 _thor_motion_complete
                 ;;
 
             perception)
-                #COMP_CWORD=$((COMP_CWORD+1))          
-                COMP_WORDS=( thor perception $cur )
-                COMP_CWORD=2
                 _thor_perception_complete
                 ;;
                 
             onboard)
-                #COMP_CWORD=$((COMP_CWORD+1))          
-                COMP_WORDS=( thor onboard $cur )
-                COMP_CWORD=2
                 _thor_onboard_complete
                 ;;
                 
             field)
-                #COMP_CWORD=$((COMP_CWORD+1))          
-                COMP_WORDS=( thor field $cur )
-                COMP_CWORD=2
                 _thor_field_complete
                 ;;
 
             screen)
                 COMPREPLY=( $( compgen -W "start stop show" -- "$cur" ) )
+                ;;
+                
+            test)
+                _thor_test_complete
                 ;;
 
             *)
