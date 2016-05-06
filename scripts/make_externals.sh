@@ -6,4 +6,3 @@ echo ">>> Building THOR-MANG libs"
 cd $THOR_ROOT/src/thor/thor_mang_libs
 make "$@"
 cd $THOR_ROOT
-
