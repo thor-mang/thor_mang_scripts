@@ -25,7 +25,7 @@ function merge {
     branch_name=${branch_name##refs/heads/}
 
     # switch to master
-    if [[ ! "$branch_name" = "$local_branch" ]]; then
+    if [[ "$branch_name" != "$local_branch" ]]; then
         if ! git checkout --quiet $local_branch; then
             echo "<<< ... FAILED!"
             return 1
