@@ -14,7 +14,7 @@ while [ "$valid_version" = false ]; do
   fi
 done
 
-read -p "Are you sure that you want to remove your current gazebo version and install gazebo$version instead? [y/n] " answer
+read -p "Are you sure that you want to remove your current gazebo version and install gazebo$version instead? [y/N] " answer
 
 if test "$answer" != "y"; then
   exit
@@ -27,7 +27,7 @@ wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 
 sudo apt-get update
 
-sudo apt-get remove -y gazebo*
+sudo apt-get remove -y gazebo* ros-indigo-gazebo*
 
 sudo apt-get install -y gazebo$version
 if test "$version" == "2"; then
