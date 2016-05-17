@@ -9,18 +9,29 @@ function thor_install() {
         return 0
     fi
 
-    if [ -r "$THOR_ROOT/rosinstall/optional/${rosinstall}.rosinstall" ]; then
-        local LAST_PWD=$PWD
-        cd $THOR_ROOT/src
-        wstool merge ../rosinstall/optional/${rosinstall}.rosinstall
-        cd $LAST_PWD
-        return 0
-    else
+    error=0
+
+    while [[ ! -z "$rosinstall" ]]; do
+        if [ -r "$THOR_ROOT/rosinstall/optional/${rosinstall}.rosinstall" ]; then
+            local LAST_PWD=$PWD
+            cd $THOR_ROOT/src
+            wstool merge ../rosinstall/optional/${rosinstall}.rosinstall
+            cd $LAST_PWD
+        else
+            error=1
+        fi
+
+        rosinstall=$1
+        shift
+    done
+
+    if [ $error -ne 0 ]; then
         echo "Unknown rosinstall file: $rosinstall"
-        _thor_install_help 
+        _thor_install_help
+        return 1
     fi
 
-    return 1
+    return 0
 }
 
 function _thor_install_files() {
