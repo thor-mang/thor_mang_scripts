@@ -12,7 +12,7 @@ if [[ ! -z "$package" ]]; then
 else
     sudo echo
 
-    echo ">>> Pulling install folder in $THOR_SCRIPTS"
+    echo ">>> Pulling scripts folder in $THOR_SCRIPTS"
     cd $THOR_SCRIPTS
     git pull
 
@@ -26,6 +26,14 @@ else
 
     echo ">>> Checking package updates"
     ./rosinstall/install_scripts/install_package_dependencies.sh
+    echo
+
+    # merge rosinstall files from rosinstall/*.rosinstall
+    for file in $THOR_ROOT/rosinstall/*.rosinstall; do
+        filename=$(basename ${file%.*})
+        echo "Merging to workspace: '$filename'.rosinstall"
+        wstool merge $file -y
+    done
     echo
 
     if [ -d $THOR_ROOT/rosinstall/optional/custom/.git ]; then
