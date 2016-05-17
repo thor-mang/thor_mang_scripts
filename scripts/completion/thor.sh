@@ -11,10 +11,10 @@ function thor() {
 
     if [ -x "$THOR_SCRIPTS/${command}.sh" ]; then
         $THOR_SCRIPTS/${command}.sh "$@"
-        return
+        return 0
     elif [ -r "$THOR_SCRIPTS/${command}.sh" ]; then
         source $THOR_SCRIPTS/${command}.sh "$@"
-        return
+        return 0
     else
         echo "Unknown thor command: $command"
         _thor_help 

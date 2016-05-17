@@ -1,7 +1,10 @@
 #!/bin/bash
+
 sudo echo
+
 versions="2, 4, 5, 6, 7"
 valid_version=false
+
 while [ "$valid_version" = false ]; do
   read -p "Which version of gazebo do you want to install? (2, 4, 5, 6, 7) " version
   if [[ $versions =~ $version ]]; then
