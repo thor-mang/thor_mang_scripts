@@ -86,6 +86,12 @@ function _thor_complete() {
                 _thor_uninstall_complete
                 ;;
 
+            ui)
+                COMP_WORDS=( roslaunch thor_mang_ui_launch $cur )
+                COMP_CWORD=2
+                _roscomplete_launch
+                ;;
+
             launch)
                 if [[ "$cur" == -* ]]; then
                     COMPREPLY=( $( compgen -W "--screen" -- "$cur" ) )
