@@ -7,12 +7,6 @@ export THOR_SCRIPTS=@(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_SHARE_DESTINATION)/
 @[end if]@
 export THOR_ROOT=$(cd "@(CMAKE_SOURCE_DIR)/../../.."; pwd)
 
-# set THOR_* environment variables
-alias l_vt_hand='. l_vt_hand'
-alias r_vt_hand='. r_vt_hand'
-alias l_thor_mang_hand='. l_thor_mang_hand'
-alias r_thor_mang_hand='. r_thor_mang_hand'
-
 # include THOR_scripts hooks
 #if [ -d $THOR_SCRIPTS ]; then
 #  . $THOR_SCRIPTS/functions.sh
@@ -41,10 +35,6 @@ export THOR_PERCEPTION_HOSTNAME="thor-perception"
 export THOR_ONBOARD_HOSTNAME="thor-motion" #need to be thor-motion because on same machine
 export ROBOT_HOSTNAMES="thor-motion thor-perception thor-onboard"
 export ROBOT_USER="thor"
-export THOR_ROBOT_TYPE="thor_mang_hands"
-export LEFT_HAND_TYPE="l_vt_hand"
-export RIGHT_HAND_TYPE="r_vt_hand"
-export THOR_DESCRIPTION_PACKAGE="thor_mang_tud_description"
 
 # adding ssh keys
 if [ -d "$THOR_ROOT/.ssh/" ] && [ "$(ls -A $THOR_ROOT/.ssh/)" ]; then
