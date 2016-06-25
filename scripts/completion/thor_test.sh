@@ -1,6 +1,8 @@
 #!/bin/bash
 
 function thor_test() {
+    set -e
+    
     package=$1
     shift
 
