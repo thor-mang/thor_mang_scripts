@@ -22,7 +22,7 @@ function thor_onboard() {
     # we are on thor-onboard
     else
         if [ $command == "start" ]; then
-            thor screen start "onboard" "roslaunch thor_mang_onboard_launch onboard_all.launch $@"
+            thor screen start "onboard" "roslaunch thor_mang_onboard_launch onboard.launch $@"
         elif [ $command == "stop" ]; then
             thor screen stop "onboard" "$@"
         elif [ $command == "show" ]; then
