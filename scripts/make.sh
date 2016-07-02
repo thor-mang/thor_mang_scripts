@@ -20,5 +20,5 @@ fi
 echo "Building with arguments $@"
 catkin build "$@"
 
-. $THOR_SCRIPTS/setup.bash
+. $THOR_ROOT/setup.bash
 
