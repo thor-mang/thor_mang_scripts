@@ -19,3 +19,6 @@ if [ "$change_dir" = true ] ; then
 fi
 echo "Building with arguments $@"
 catkin build "$@"
+
+. $THOR_SCRIPTS/setup.bash
+
