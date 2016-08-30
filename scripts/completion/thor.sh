@@ -11,10 +11,10 @@ function thor() {
 
     if [ -x "$THOR_SCRIPTS/${command}.sh" ]; then
         $THOR_SCRIPTS/${command}.sh "$@"
-        return
+        return 0
     elif [ -r "$THOR_SCRIPTS/${command}.sh" ]; then
         source $THOR_SCRIPTS/${command}.sh "$@"
-        return
+        return 0
     else
         echo "Unknown thor command: $command"
         _thor_help 
@@ -84,6 +84,12 @@ function _thor_complete() {
 
             uninstall)
                 _thor_uninstall_complete
+                ;;
+
+            ui)
+                COMP_WORDS=( roslaunch thor_mang_ui_launch $cur )
+                COMP_CWORD=2
+                _roscomplete_launch
                 ;;
 
             launch)
