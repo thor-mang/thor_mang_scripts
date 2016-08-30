@@ -11,7 +11,7 @@ function merge {
         return 0
     fi
 
-    echo ">>> Merging '$local' with remote from $remote ..."
+    echo ">>> Merging '$local' with remote from '$remote' ..."
 
     if [ ! -d $THOR_ROOT/src/thor/robotis/$local ] ; then
         echo "Error: '$THOR_ROOT/src/thor/robotis/$local' does not exist!"
@@ -24,7 +24,7 @@ function merge {
     branch_name="(unnamed branch)"     # detached HEAD
     branch_name=${branch_name##refs/heads/}
 
-    # switch to master
+    # switch to local branch
     if [[ "$branch_name" != "$local_branch" ]]; then
         if ! git checkout --quiet $local_branch; then
             echo "<<< ... FAILED!"
@@ -55,9 +55,24 @@ function merge {
     return 0
 }
 
-merge common master https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git master
-merge framework master https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git master
-merge mpc master https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git master
-merge opc master https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git master
-merge ppc master https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git master
-merge tools master https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git master
+merge dynamixel_sdk     master  https://github.com/ROBOTIS-GIT/DynamixelSDK.git             master
+merge common            master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  master
+merge math              master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Math.git    master
+merge thormang_msgs     master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    master
+merge framework_msgs    master  https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   master
+merge framework         master  https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        master
+merge tools             master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git   master
+merge mpc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git     master
+merge opc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git     master
+merge ppc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git     master
+
+merge dynamixel_sdk     robotis https://github.com/ROBOTIS-GIT/DynamixelSDK.git             develop
+merge common            robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  develop
+merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Math.git    master
+merge thormang_msgs     robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    master
+merge framework_msgs    robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   master
+merge framework         robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        develop
+merge tools             robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git   develop
+merge mpc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git     develop
+merge opc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git     develop
+merge ppc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git     develop
