@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+debug=false
+if [ "$1" == "debug" ]; then
+  shift
+  debug=true
+fi
+
 if [ "$#" -lt 1 ]; then
   . $THOR_SCRIPTS/make_externals.sh
 fi
@@ -14,11 +20,24 @@ do
   fi
 done
 
-if [ "$change_dir" = true ] ; then
+if [ $change_dir == true ] ; then
   cd $THOR_ROOT
 fi
-echo "Building with arguments $@"
-catkin build "$@"
+
+args="$@"
+if [ $debug == true ]; then
+  echo
+  echo "--------------------- Debug build ---------------------"
+  args="-DCMAKE_BUILD_TYPE=Debug $args"
+else
+  echo "-------------------- Default build --------------------"
+fi
+
+echo ">>> Building with arguments '$args'"
+echo "-------------------------------------------------------"
+echo
+
+catkin build "$args"
 
 . $THOR_ROOT/setup.bash
 
