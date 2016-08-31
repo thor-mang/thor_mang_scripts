@@ -27,14 +27,15 @@ fi
 args="$@"
 if [ $debug == true ]; then
   echo
-  echo "--------------------- Debug build ---------------------"
+  echo "-------------------- Debug build --------------------"
   args="-DCMAKE_BUILD_TYPE=Debug $args"
 else
-  echo "-------------------- Default build --------------------"
+  echo
+  echo "------------------- Default build -------------------"
 fi
 
 echo ">>> Building with arguments '$args'"
-echo "-------------------------------------------------------"
+echo "-----------------------------------------------------"
 echo
 
 catkin build $args
