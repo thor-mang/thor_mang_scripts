@@ -14,8 +14,8 @@ fi
 change_dir=true
 for var in "$@"
 do
-	if [ "$var" == "--this" ]; then
-		change_dir=false
+  if [ "$var" == "--this" ]; then
+    change_dir=false
     break
   fi
 done
@@ -37,7 +37,7 @@ echo ">>> Building with arguments '$args'"
 echo "-------------------------------------------------------"
 echo
 
-catkin build "$args"
+catkin build $args
 
 . $THOR_ROOT/setup.bash
 
