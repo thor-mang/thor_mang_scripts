@@ -57,7 +57,7 @@ function merge {
 
 merge dynamixel_sdk     master  https://github.com/ROBOTIS-GIT/DynamixelSDK.git             master
 merge common            master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  master
-merge math              master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Math.git    master
+merge math              master  https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             master
 merge thormang_msgs     master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    master
 merge framework_msgs    master  https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   master
 merge framework         master  https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        master
@@ -68,7 +68,7 @@ merge ppc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-
 
 merge dynamixel_sdk     robotis https://github.com/ROBOTIS-GIT/DynamixelSDK.git             develop
 merge common            robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  develop
-merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Math.git    master
+merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             master
 merge thormang_msgs     robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    master
 merge framework_msgs    robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   master
 merge framework         robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        develop
