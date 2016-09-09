@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
 
+. $THOR_SCRIPTS/make_externals.sh
+
+# check if debug compile is set
 debug=false
 if [ "$1" == "debug" ]; then
   shift
   debug=true
 fi
 
-if [ "$#" -lt 1 ]; then
-  . $THOR_SCRIPTS/make_externals.sh
-fi
-
+# check for single pkg compile
 change_dir=true
 for var in "$@"
 do
@@ -24,6 +24,7 @@ if [ $change_dir == true ] ; then
   cd $THOR_ROOT
 fi
 
+# add proper compile flag
 args="$@"
 if [ $debug == true ]; then
   echo
@@ -33,7 +34,6 @@ else
   echo
   echo "------------------- Default build -------------------"
 fi
-
 echo ">>> Building with arguments '$args'"
 echo "-----------------------------------------------------"
 echo
@@ -41,4 +41,3 @@ echo
 catkin build $args
 
 . $THOR_ROOT/setup.bash
-
