@@ -2,4 +2,4 @@
 set -e
 
 $THOR_SCRIPTS/update.sh
-$THOR_SCRIPTS/make.sh
+$THOR_SCRIPTS/make.sh "$@"
