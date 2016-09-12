@@ -35,6 +35,7 @@ export THOR_PERCEPTION_HOSTNAME="thor-perception"
 export THOR_ONBOARD_HOSTNAME="thor-motion" #need to be thor-motion because on same machine
 export ROBOT_HOSTNAMES="thor-motion thor-perception thor-onboard"
 export ROBOT_USER="thor"
+export GAZEBO_MODEL_PATH=$THOR_ROOT/src/thor/thor_mang_simulation/thor_mang_gazebo/models
 
 # adding ssh keys
 if [ -d "$THOR_ROOT/.ssh/" ] && [ "$(ls -A $THOR_ROOT/.ssh/)" ]; then
