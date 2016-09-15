@@ -55,7 +55,7 @@ fi
 sudo apt-get autoremove -y
 
 # built/cleanup gazebo-plugins libs
-roscd
+cd $THOR_ROOT
 if test "$version" == "2"; then
     if rospack list | grep -q gazebo_plugins; then
         wstool rm external/gazebo_ros_pkgs
@@ -73,8 +73,7 @@ if test "$version" == "2"; then
     fi
 else
     if [ -z $(rospack list | grep -q gazebo_plugins)]; then
-        wstool set external/gazebo_ros_pkgs --git https://github.com/ros-simulation/gazebo_ros_pkgs.git -v indigo-devel
-        wstool update      
+        wstool set -y -u src/external/gazebo_ros_pkgs --git https://github.com/ros-simulation/gazebo_ros_pkgs.git -v indigo-devel
     fi
 fi
 
