@@ -26,7 +26,7 @@ function thor() {
 function _thor_commands() {
     local THOR_COMMANDS=()
 
-    for i in `find $THOR_SCRIPTS/ -type f -name "*.sh"`; do
+    for i in `find -L $THOR_SCRIPTS/ -type f -name "*.sh"`; do
         command=${i#$THOR_SCRIPTS/}
         command=${command%.sh}
         if [[ "$command" == "completion/"* ]]; then

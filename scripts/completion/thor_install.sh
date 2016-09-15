@@ -37,7 +37,7 @@ function thor_install() {
 function _thor_install_files() {
     local THOR_ROSINSTALL_FILES=()
  
-    for i in `find $THOR_ROOT/rosinstall/optional/ -type f -name "*.rosinstall"`; do
+    for i in `find -L $THOR_ROOT/rosinstall/optional/ -type f -name "*.rosinstall"`; do
         file=${i#$THOR_ROOT/rosinstall/optional/}
         file=${file%.rosinstall}
         if [ -r $i ]; then
