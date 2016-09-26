@@ -11,7 +11,7 @@ function merge {
         return 0
     fi
 
-    echo ">>> Merging '$local' with remote from '$remote' ..."
+    echo ">>> Merging '$local ($local_branch)' with remote from '$remote ($remote_branch)' ..."
 
     if [ ! -d $THOR_ROOT/src/thor/robotis/$local ] ; then
         echo "Error: '$THOR_ROOT/src/thor/robotis/$local' does not exist!"
@@ -55,6 +55,11 @@ function merge {
     return 0
 }
 
+echo "-------------------------------"
+echo ">>> Syncing master branches <<<"
+echo "-------------------------------"
+echo
+
 merge dynamixel_sdk     master  https://github.com/ROBOTIS-GIT/DynamixelSDK.git             master
 merge common            master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  master
 merge math              master  https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             master
@@ -65,6 +70,12 @@ merge tools             master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-
 merge mpc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git     master
 merge opc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git     master
 merge ppc               master  https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git     master
+
+echo
+echo "--------------------------------"
+echo ">>> Syncing robotis branches <<<"
+echo "--------------------------------"
+echo
 
 merge dynamixel_sdk     robotis https://github.com/ROBOTIS-GIT/DynamixelSDK.git             develop
 merge common            robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  develop
