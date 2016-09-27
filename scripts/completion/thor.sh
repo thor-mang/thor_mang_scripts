@@ -130,6 +130,12 @@ function _thor_complete() {
                 COMPREPLY=( $( compgen -W "start stop show" -- "$cur" ) )
                 ;;
                 
+            sim)
+                if [ $COMP_CWORD -eq 2 ]; then
+                    _thor_sim_complete
+                fi
+                ;;
+                
             test)
                 _thor_test_complete
                 ;;
