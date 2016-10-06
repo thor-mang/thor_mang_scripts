@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. $THOR_ROOT/setup.bash ""
+
 function blueEcho()
 {
   echo -ne '\e[0;34m'
@@ -7,17 +9,13 @@ function blueEcho()
   echo -ne '\e[0m'
 }
 
-function findCanonicalBranch()
+function getSpecBranch()
 {
-  dir=$1
-  rosinstalldir=$2
+  entry=$1
 
-  if [ -e "$rosinstalldir/.rosinstall" ]
-  then
-    name=$(basename $dir)
-    desiredBranch=$(perl -0 -ne 'print qq($1\n) if /\b'$name'\b.*\n.*version: ([^}]+)/mg' ${THOR_ROOT}/.rosinstall)
-  fi
-
+  desiredBranch=$(wstool info $entry | grep "Spec-Version")
+  desiredBranch="${desiredBranch[@]}"
+  desiredBranch=${desiredBranch#*: }
   echo $desiredBranch
 }
 
@@ -77,20 +75,26 @@ cd ${THOR_ROOT}
 blueEcho "Looking for changes in $PWD ..."
 displayStatus $PWD
 
-
-catkin_src=${ROS_WORKSPACE}
-blueEcho "Looking for changes in ${catkin_src} ..."
-for d in `find  ${catkin_src} -mindepth 1 -maxdepth 3 -type d`;
-do
-  branch=$(findCanonicalBranch $d ${catkin_src}/..)
-  displayStatus $d $branch
-done
-
-
 if [ -d $THOR_ROOT/rosinstall/optional/custom/.git ]; then
-
     cd $THOR_ROOT/rosinstall/optional/custom
     blueEcho "Looking for changes in $PWD ..."
     displayStatus $PWD
 fi
+
+if [ -d $THOR_SCRIPTS/custom/.git ]; then
+    cd $THOR_SCRIPTS/custom
+    blueEcho "Looking for changes in $PWD ..."
+    displayStatus $PWD
+fi
+
+blueEcho "Looking for changes in ${ROS_WORKSPACE} ..."
+roscd
+entries=$(wstool foreach echo)
+for e in ${entries[@]};
+do
+  e=${e#*[}
+  e=${e%]*}
+  branch=$(getSpecBranch $e)
+  displayStatus $THOR_ROOT/$e $branch
+done
 
