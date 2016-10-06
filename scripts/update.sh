@@ -17,7 +17,7 @@ else
     git pull
 
     # Remove obsolete stuff using wstool
-    $THOR_SCRIPTS/rm_obsolete_packages.sh
+    $THOR_SCRIPTS/helper/rm_obsolete_packages.sh
 
     echo ">>> Pulling install folder in $THOR_ROOT"
     cd $THOR_ROOT

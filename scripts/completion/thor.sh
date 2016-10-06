@@ -29,7 +29,7 @@ function _thor_commands() {
     for i in `find -L $THOR_SCRIPTS/ -type f -name "*.sh"`; do
         command=${i#$THOR_SCRIPTS/}
         command=${command%.sh}
-        if [[ "$command" == "completion/"* ]]; then
+        if [[ "$command" == "completion/"* || "$command" == "helper/"* ]]; then
             continue
         elif [ -r $i ]; then
             THOR_COMMANDS+=($command)
