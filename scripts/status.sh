@@ -98,3 +98,5 @@ do
   displayStatus $THOR_ROOT/$e $branch
 done
 
+blueEcho "Status check done!"
+
