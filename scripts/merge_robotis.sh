@@ -79,9 +79,9 @@ echo
 
 merge dynamixel_sdk     robotis https://github.com/ROBOTIS-GIT/DynamixelSDK.git             develop
 merge common            robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  develop
-merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             master
-merge thormang_msgs     robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    master
-merge framework_msgs    robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   master
+merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             develop
+merge thormang_msgs     robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    develop
+merge framework_msgs    robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   develop
 merge framework         robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        develop
 merge tools             robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git   develop
 merge mpc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git     develop
