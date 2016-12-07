@@ -22,7 +22,7 @@ function thor_perception() {
     # we are on thor-perception
     else
         if [ $command == "start" ]; then
-            thor master "thor-motion"
+            thor master "thor-perception"
             thor screen start "perception" "roslaunch thor_mang_onboard_launch perception.launch $@"
         elif [ $command == "stop" ]; then
             thor screen stop "perception" "$@"
