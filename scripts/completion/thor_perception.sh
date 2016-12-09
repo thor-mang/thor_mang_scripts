@@ -23,7 +23,8 @@ function thor_perception() {
     else
         if [ $command == "start" ]; then
             thor master "thor-perception"
-            thor screen start "perception" "roslaunch thor_mang_onboard_launch perception.launch $@"
+            thor screen start "perception" \
+            "export ROS_MASTER_URI=http://thor-motion:11311; export ROS_IP=192.168.1.11; roslaunch thor_mang_onboard_launch perception.launch $@"
         elif [ $command == "stop" ]; then
             thor screen stop "perception" "$@"
         elif [ $command == "show" ]; then
