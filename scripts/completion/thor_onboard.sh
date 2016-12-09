@@ -22,7 +22,8 @@ function thor_onboard() {
     # we are on thor-onboard
     else
         if [ $command == "start" ]; then
-            thor screen start "onboard" "roslaunch thor_mang_onboard_launch onboard.launch $@"
+            thor screen start "onboard" \
+            "export ROS_MASTER_URI=http://thor-motion:11311; export ROS_IP=192.168.1.11; roslaunch thor_mang_onboard_launch onboard.launch $@"
         elif [ $command == "stop" ]; then
             thor screen stop "onboard" "$@"
         elif [ $command == "show" ]; then
