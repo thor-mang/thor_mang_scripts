@@ -8,7 +8,7 @@
   <maintainer email="stumpf@sim.tu-darmstadt.de">Alexander Stumpf</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
-  <license>GPLv3</license>
+  <license>BSD</license>
 
   <!-- Url tags are optional, but mutiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
