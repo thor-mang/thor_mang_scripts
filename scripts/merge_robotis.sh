@@ -77,13 +77,13 @@ echo ">>> Syncing robotis branches <<<"
 echo "--------------------------------"
 echo
 
-merge dynamixel_sdk     robotis https://github.com/ROBOTIS-GIT/DynamixelSDK.git             develop
+merge dynamixel_sdk     robotis https://github.com/ROBOTIS-GIT/DynamixelSDK.git             master
 merge common            robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common.git  develop
-merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             develop
-merge thormang_msgs     robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    develop
-merge framework_msgs    robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   develop
-merge framework         robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        develop
-merge tools             robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git   develop
-merge mpc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git     develop
-merge opc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git     develop
-merge ppc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git     develop
+merge math              robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Math.git             master
+merge thormang_msgs     robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-msgs.git    master
+merge framework_msgs    robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs.git   master
+merge framework         robotis https://github.com/ROBOTIS-GIT/ROBOTIS-Framework.git        master
+merge tools             robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Tools.git   master
+merge mpc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-MPC.git     master
+merge opc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC.git     master
+merge ppc               robotis https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-PPC.git     master
