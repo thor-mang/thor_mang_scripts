@@ -14,7 +14,10 @@ export ROSWSS_ROOT_RELATIVE_PATH="../.."
 # SETUP YOUR ENVIRONMENT HERE
 export ONBOARD_LAUNCH_PKG="thor_mang_onboard_launch"
 export GAZEBO_LAUNCH_PKG="thor_mang_gazebo"
+export GAZEBO_LAUNCH_FILE="start_all.launch"
+export GAZEBO_LAUNCH_W_ONBOARD_FILE="start_onboard_all.launch"
 export GAZEBO_WORLDS_PKG="thor_mang_gazebo"
+
 export ROBOT_MASTER_HOSTNANE="thor-motion"
 export ROBOT_HOSTNAMES="thor-motion thor-perception thor-onboard"
 export ROBOT_USER="thor"
