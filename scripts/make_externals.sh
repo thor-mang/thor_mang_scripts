@@ -5,5 +5,6 @@ if [ -r "$ROS_WORKSPACE/external/sbpl" ]; then
   mkdir -p build
   cd build
   cmake ..
+  make
   sudo make install
 fi
