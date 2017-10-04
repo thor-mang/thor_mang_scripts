@@ -18,8 +18,8 @@ export GAZEBO_LAUNCH_FILE="start_all.launch"
 export GAZEBO_LAUNCH_W_ONBOARD_FILE="start_onboard_all.launch"
 export GAZEBO_WORLDS_PKG="thor_mang_gazebo"
 export AUTOSTART_LAUNCH_PKG="thor_mang_robot_bringup"
-export ROBOT_MASTER_HOSTNANE="thor-motion"
-export ROBOT_HOSTNAMES="thor-motion thor-perception thor-onboard"
+export ROBOT_MASTER_HOSTNANE="motion"
+export ROBOT_HOSTNAMES="motion perception onboard"
 export ROBOT_USER="thor"
 
 # THOR SPECIFIC EXPORTS
