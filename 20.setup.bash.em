@@ -24,9 +24,9 @@ export ROBOT_USER="thor"
 
 # THOR SPECIFIC EXPORTS
 export GAZEBO_MODEL_PATH=$WS_ROOT/src/thor/thor_mang_simulation/thor_mang_gazebo/models
-export THOR_MOTION_HOSTNAME="thor-motion"
-export THOR_PERCEPTION_HOSTNAME="thor-perception"
-export THOR_ONBOARD_HOSTNAME="thor-perception"
+export THOR_MOTION_HOSTNAME="motion"
+export THOR_PERCEPTION_HOSTNAME="perception"
+export THOR_ONBOARD_HOSTNAME="perception"
 
 # THOR PCs/LAUNCHES
 add_remote_pc "motion" "thor-motion" "motion" "roslaunch thor_mang_onboard_launch motion.launch"
