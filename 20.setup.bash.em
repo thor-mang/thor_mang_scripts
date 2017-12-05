@@ -13,6 +13,7 @@ export ROSWSS_ROOT_RELATIVE_PATH="../.."
 
 # SETUP YOUR ENVIRONMENT HERE
 export ONBOARD_LAUNCH_PKG="thor_mang_onboard_launch"
+export UI_LAUNCH_PKG="thor_mang_ui_launch"
 export GAZEBO_LAUNCH_PKG="thor_mang_gazebo"
 export GAZEBO_LAUNCH_FILE="start_all.launch"
 export GAZEBO_LAUNCH_W_ONBOARD_FILE="start_onboard_all.launch"
