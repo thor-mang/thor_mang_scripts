@@ -1,3 +1,5 @@
 #!/bin/bash
 
-roslaunch thor_mang_ui_launch "$@"
+. $ROSWSS_ROOT/setup.bash ""
+
+ui "$@"
