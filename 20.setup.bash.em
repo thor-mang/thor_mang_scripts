@@ -33,6 +33,3 @@ export THOR_ONBOARD_HOSTNAME="perception"
 add_remote_pc "motion" "motion" "motion" "roslaunch thor_mang_onboard_launch motion.launch"
 add_remote_pc "perception" "perception" "perception" "export ROS_MASTER_URI=http://thor-motion:11311; export ROS_IP=192.168.1.11; roslaunch thor_mang_onboard_launch perception.launch"
 add_remote_pc "onboard" "motion" "onboard" "export ROS_MASTER_URI=http://thor-motion:11311; export ROS_IP=192.168.1.11; roslaunch thor_mang_onboard_launch onboard.launch"
-
-# Custom completion scripts
-add_completion "ui" "_ui_complete"
