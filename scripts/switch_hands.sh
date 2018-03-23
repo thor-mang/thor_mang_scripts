@@ -56,9 +56,19 @@ echo "  Right hand type = $R_HAND_TYPE"
 echo
 
 # regenerate URDF model
-echo "Regenerating URDF model..."
+echo_info "Regenerating URDF model..."
 last_pwd=$PWD
 roscd thormang3_description/urdf
 rosrun xacro xacro --inorder -o johnny5.urdf thormang3.xacro robot_name:="johnny5" l_hand_type:=$L_HAND_TYPE r_hand_type:=$R_HAND_TYPE
-echo "Done!"
+echo_info "Done!"
+echo
 cd $last_pwd
+
+# setup robot config
+echo_info "Generation of custom robot config..."
+roscd thormang3_manager/config
+cat hand_configs/THORMANG3_no_hands.robot > THORMANG3_gen.robot
+cat hand_configs/l_${L_HAND_TYPE}.robot >> THORMANG3_gen.robot
+cat hand_configs/r_${R_HAND_TYPE}.robot >> THORMANG3_gen.robot
+export ROBOT_SETUP="THORMANG3_gen"
+echo_info "Done!"
