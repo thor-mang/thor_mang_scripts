@@ -2,6 +2,7 @@
 
 source $ROSWSS_BASE_SCRIPTS/helper/helper.sh
 
+# read arguments if given
 if [ ! -z "$1" ]; then
     hand="$1"
     shift
@@ -30,6 +31,7 @@ while [ ! "$hand_type" == "v" ] && [ ! "$hand_type" == "r" ] && [ ! "$hand_type"
     echo
 done
 
+# dispatch hand type
 case $hand_type in
     n)
         hand_type="none"
