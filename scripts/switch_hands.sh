@@ -2,6 +2,14 @@
 
 source $ROSWSS_BASE_SCRIPTS/helper/helper.sh
 
+# check for reset command
+if [ "$1" == "reset" ]; then
+    if [ -f $ROSWSS_ROOT/.hands ]; then
+        rm $ROSWSS_ROOT/.hands
+    fi
+    return
+fi
+
 # read arguments if given
 if [ ! -z "$1" ]; then
     hand="$1"
@@ -74,6 +82,18 @@ cat hand_configs/THORMANG3_no_hands.robot >> THORMANG3_generated.robot
 cat hand_configs/l_${L_HAND_TYPE}.robot >> THORMANG3_generated.robot
 cat hand_configs/r_${R_HAND_TYPE}.robot >> THORMANG3_generated.robot
 export ROBOT_SETUP="THORMANG3_generated"
+echo_info "Done!"
+echo
+
+# create export file (for auto sourcing non-default config)
+echo_info "Generation of export file..."
+cat >$ROSWSS_ROOT/.hands <<EOF
+#!/bin/bash
+# automated generated file
+export L_HAND_TYPE="$L_HAND_TYPE"
+export R_HAND_TYPE="$R_HAND_TYPE"
+export ROBOT_SETUP="$ROBOT_SETUP" 
+EOF
 echo_info "Done!"
 
 cd $last_pwd
