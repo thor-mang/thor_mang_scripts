@@ -53,7 +53,8 @@ done
 case $hand_type in
     n)
         hand_type="none"
-        hand_joints="none"
+        l_hand_joints="none"
+        r_hand_joints="none"
         ;;
     v)
         hand_type="vt_hand"
