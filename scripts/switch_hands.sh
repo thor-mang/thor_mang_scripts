@@ -10,6 +10,16 @@ if [ "$1" == "reset" ]; then
     return
 fi
 
+# check for status command
+if [ "$1" == "status" ]; then
+    echo_info "Current robot hand setup:"
+    echo "  Left hand type  = $L_HAND_TYPE"
+    echo "  Right hand type = $R_HAND_TYPE"
+    echo
+    return
+fi
+
+
 # read arguments if given
 if [ ! -z "$1" ]; then
     hand="$1"
@@ -43,21 +53,28 @@ done
 case $hand_type in
     n)
         hand_type="none"
+        hand_joints="none"
         ;;
     v)
         hand_type="vt_hand"
+        l_hand_joints="l_f0_j0, l_f1_j0"
+        r_hand_joints="r_f0_j0, r_f1_j0"
         ;;
     r)
         hand_type="rh_p12_rn"
+        l_hand_joints="l_rh_p12_rn"
+        r_hand_joints="r_rh_p12_rn"
         ;;
 esac
 
 # set hand type
 if [ "$hand" == "b" ] || [ "$hand" == "l" ]; then
   export L_HAND_TYPE="$hand_type"
+  export L_HAND_JOINTS="$l_hand_joints"
 fi
 if [ "$hand" == "b" ] || [ "$hand" == "r" ]; then
   export R_HAND_TYPE="$hand_type"
+  export R_HAND_JOINTS="$r_hand_joints"
 fi
 
 echo_info "New robot hand setup:"
@@ -66,13 +83,6 @@ echo "  Right hand type = $R_HAND_TYPE"
 echo
 
 last_pwd=$PWD
-
-# regenerate URDF model
-echo_info "Regenerating URDF model..."
-roscd thormang3_description/urdf
-rosrun xacro xacro --inorder -o johnny5.urdf thormang3.xacro robot_name:="johnny5" l_hand_type:=$L_HAND_TYPE r_hand_type:=$R_HAND_TYPE
-echo_info "Done!"
-echo
 
 # setup robot config
 echo_info "Generation of custom robot config..."
@@ -91,7 +101,9 @@ cat >$ROSWSS_ROOT/.hands <<EOF
 #!/bin/bash
 # automated generated file
 export L_HAND_TYPE="$L_HAND_TYPE"
+export L_HAND_JOINTS="$L_HAND_JOINTS"
 export R_HAND_TYPE="$R_HAND_TYPE"
+export R_HAND_JOINTS="$R_HAND_JOINTS"
 export ROBOT_SETUP="$ROBOT_SETUP" 
 EOF
 echo_info "Done!"
