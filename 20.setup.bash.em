@@ -27,6 +27,6 @@ export ROBOT_USER="thor"
 # Syntax:
 #   add_remote_pc "<script_name>" "<host_name>" "<screen_name>" "<command>"
 add_remote_pc "motion" "motion" "motion_start" "~/thor/src/thor/thor_mang_robot_bringup/scripts/motion.sh"
-add_remote_pc "perception" "perception_start" "perception" "~/thor/src/thor/thor_mang_robot_bringup/scripts/perception.sh"
+add_remote_pc "perception" "perception" "perception_start" "~/thor/src/thor/thor_mang_robot_bringup/scripts/perception.sh"
 add_remote_pc "onboard" "motion" "onboard_start" "~/thor/src/thor/thor_mang_robot_bringup/scripts/onboard.sh"
 add_remote_pc "robot_basics" "motion" "robot_basics_start" "~/thor/src/thor/thor_mang_robot_bringup/scripts/robot_basics.sh"
