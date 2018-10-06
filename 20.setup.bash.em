@@ -19,7 +19,7 @@ export GAZEBO_LAUNCH_PKG="thor_mang_gazebo"
 export GAZEBO_DEFAULT_LAUNCH_FILE="johnny5.launch"
 export GAZEBO_WORLDS_PKG="thor_mang_gazebo"
 export AUTOSTART_LAUNCH_PKG="thor_mang_robot_bringup"
-export ROBOT_MASTER_HOSTNANE="motion"
+export ROBOT_MASTER_HOSTNAME="motion"
 export ROBOT_HOSTNAMES="motion perception"
 export ROBOT_USER="thor"
 
