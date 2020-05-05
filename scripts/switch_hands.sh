@@ -7,6 +7,11 @@ if [ "$1" == "reset" ]; then
     if [ -f $ROSWSS_ROOT/.hands ]; then
         rm $ROSWSS_ROOT/.hands
     fi
+    unset L_HAND_TYPE
+    unset L_HAND_JOINTS
+    unset R_HAND_TYPE
+    unset R_HAND_JOINTS
+    unset ROBOT_SETUP
     return
 fi
 
