@@ -22,6 +22,9 @@ export ROBOT_MASTER_HOSTNAME="motion"
 export ROBOT_HOSTNAMES="motion perception"
 export ROBOT_USER="thor"
 
+# additional build flags given to catkin build by default (see: https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_build.html#full-command-line-interface)
+export CATKIN_BUILD_FLAGS="--continue-on-failure --summarize"
+
 # THOR PCs/LAUNCHES
 # Syntax:
 #   add_remote_pc "<script_name>" "<host_name>" "<screen_name>" "<command>"
